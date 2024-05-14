@@ -1,11 +1,13 @@
 # sophia
 
-Descripciín basisca de su Proyecto de POO ...
+Descripción básica de su Proyecto de POO ...
+
+opcion alternativa.
 
 # Autores
 
-- Autor 1
-- Autor 2
+- Autor: Hector Daniel Gonzalez Sanchez
+- Co_author: Maicol Steven Paez Cruz
 
 # Herramientas
 
