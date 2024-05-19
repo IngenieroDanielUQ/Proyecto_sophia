@@ -4,24 +4,24 @@ import java.time.LocalDateTime;
 
 /*Creacion de la clase principal Parqueadero */
 public class Parqueadero {
-    private int puestos;
+    int[][] puestos;
     private LocalDateTime horaEntrada;
     private LocalDateTime horaSalida;
     public Puesto puesto;
 
     /* Constructor */
-    public Parqueadero(int puestos, LocalDateTime horaEntrada, LocalDateTime horaSalida, Puesto puesto) {
+    public Parqueadero(int [][]puestos, LocalDateTime horaEntrada, LocalDateTime horaSalida, Puesto puesto) {
         this.puestos = puestos;
         this.horaEntrada = horaEntrada;
         this.puesto = puesto;
     }
 
     /* Getters y setters */
-    public int getPuestos() {
+    public int[][] getPuestos() {
         return puestos;
     }
 
-    public void setPuestos(int puestos) {
+    public void setPuestos(int[][] puestos) {
         this.puestos = puestos;
     }
 
