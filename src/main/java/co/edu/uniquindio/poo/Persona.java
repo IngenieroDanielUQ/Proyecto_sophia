@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo;
 
+import java.util.Scanner;
+
 /*Creacion de la clase persona que se agrega en Vehiculo*/
 public class Persona {
     private String nombre;
@@ -69,4 +71,23 @@ public String toString() {
             "Telefono:" + telefono + "\n" +
             "Tipo:" + tipoPersona + "\n";
 }
+
+// Método estático para registrar un nuevo propietario
+public static Persona registrarPropietario() {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Ingrese el nombre del propietario: ");
+    String nombre = scanner.nextLine();
+    System.out.print("Ingrese la cédula del propietario: ");
+    String cedula = scanner.nextLine();
+    System.out.print("Ingrese el teléfono del propietario: ");
+    String telefono = scanner.nextLine();
+    // Suponiendo que también necesitas el tipo de persona
+    System.out.print("Ingrese el tipo de persona (propietario o comprador): ");
+    String tipo = scanner.nextLine();
+    TipoPersona tipoPersona = TipoPersona.valueOf(tipo.toUpperCase()); // Daniel es para Convertir a enum
+
+// Creaamos una nueva instancia de Persona con los datos ingresados por el usuario
+    return new Persona(nombre, cedula, telefono, tipoPersona);
+    }
 }

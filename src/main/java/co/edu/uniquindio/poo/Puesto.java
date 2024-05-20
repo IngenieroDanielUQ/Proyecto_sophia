@@ -1,18 +1,24 @@
 package co.edu.uniquindio.poo;
 
+import java.time.LocalDateTime;
+
 /*Creacion de la clase principal Puesto que compone al parqueadero*/
 
 public class Puesto {
     private boolean estaOcupado;
     private double tarifa;
     private Vehiculo vehiculoOcupante;
+    private LocalDateTime fechaHoraRegistro;
+    
 
 
 /*Constructor*/
 public Puesto(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
-    this.estaOcupado = estaOcupado;
+    this.estaOcupado = false;
     this.tarifa = tarifa;
     this.vehiculoOcupante = vehiculoOcupante;
+    this.fechaHoraRegistro = null; // Inicialmente no hay fecha y hora de registro
+
 }
 
 //Getters y setters
@@ -37,6 +43,7 @@ public Puesto(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
     }
 
 
+
     public Vehiculo getVehiculoOcupante() {
         return vehiculoOcupante;
     }
@@ -47,12 +54,25 @@ public Puesto(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
     }
 
 
+    public LocalDateTime getFechaHoraRegistro() {
+        return fechaHoraRegistro;
+    }
+    
+    public Persona getPropietario() {
+        return vehiculoOcupante != null ?  vehiculoOcupante.getPersona() : null;
+    }
 
+    
+
+/*Método verificar disponibilidad de puesto*/
+    
 /*Método ocupar*/
-    public void ocupar(){
-        if (!estaOcupado) {
+    public void ocupar(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante){
+        if (!this.estaOcupado) {
             this.estaOcupado = true;
-            System.out.println("El puesto ha sido ocupado por el vehículo " + vehiculoOcupante.getPlaca());
+            this.fechaHoraRegistro = LocalDateTime.now(); // Registrar la fecha y hora actuales
+            this.vehiculoOcupante = vehiculoOcupante;
+            System.out.println("El puesto ha sido ocupado por el vehículo " + this.vehiculoOcupante.getPlaca());
         } else {
             System.out.println("El puesto ya está ocupado.");
         }
@@ -64,6 +84,8 @@ public Puesto(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
         if (estaOcupado) {
             this.estaOcupado = false;
             this.vehiculoOcupante = null;
+            this.fechaHoraRegistro = null; // Resetear la fecha y hora de registro
+
             System.out.println("El puesto ha sido desocupado.");
         } else {
             System.out.println("El puesto ya está desocupado.");
@@ -82,4 +104,9 @@ public Puesto(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
     public void mostrarInformacion(){
         System.out.println(toString());
     }
+
+    public boolean estaOcupado() {
+        return estaOcupado;
+    }
+
 }
