@@ -8,7 +8,7 @@ public class CrearParqueadero extends Parqueadero {
         super(filas, columnas);
     }
 
-    /* Método desocupar */
+    /* Método para crear parqueadero */
     public static void crearParqueadero() {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
