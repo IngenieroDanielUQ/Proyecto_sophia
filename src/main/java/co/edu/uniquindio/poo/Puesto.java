@@ -6,42 +6,34 @@ public class Puesto {
     private int posicionI;
     private int posicionJ;
     private boolean estaOcupado;
-    private double tarifa;
+    private int tarifa;
     private Vehiculo vehiculoOcupante;
 
 
 /*Constructor*/
+public Puesto(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
+    this.estaOcupado = false;
+    this.tarifa = tarifa;
+    this.vehiculoOcupante = vehiculoOcupante;
+    this.fechaHoraRegistro = null; // Inicialmente no hay fecha y hora de registro
 
-    public Puesto(int posicionI, int posicionJ, boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
-        this.posicionI = posicionI;
-        this.posicionJ = posicionJ;
-        this.estaOcupado = estaOcupado;
-        this.tarifa = tarifa;
-        this.vehiculoOcupante = vehiculoOcupante;
-    }
+}
 
-/*Getters y setters*/
-    public int getPosicionI() {
-        return posicionI;
-    }
+//Getters y setters
 
-    public void setPosicionI(byte posicionI) {
-        this.posicionI = posicionI;
-    }
-
-    public int getPosicionJ() {
-        return posicionJ;
+    public boolean isEstaOcupado() {
+        return estaOcupado;
     }
 
     public void setPosicionJ(byte posicionJ) {
         this.posicionJ = posicionJ;
     }
 
-    public double getTarifa() {
+    public int getTarifa() {
         return tarifa;
     }
 
-    public void setTarifa(double tarifa) {
+    public void setTarifa(int tarifa) {
         this.tarifa = tarifa;
     }
 
@@ -62,8 +54,8 @@ public class Puesto {
     }
 
 /*Método ocupar*/
-    public void ocupar(){
-        if (!estaOcupado) {
+    public void ocupar(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante){
+        if (!this.estaOcupado) {
             this.estaOcupado = true;
             System.out.println("El puesto (" + posicionI + "," + posicionJ + ") ha sido ocupado por el vehículo " + vehiculoOcupante.getPlaca());
         } else {
