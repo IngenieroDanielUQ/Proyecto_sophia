@@ -5,8 +5,6 @@ Descripción básica...
 El proyecto Sophia es un trabajo realizado por Maicol Steven Paez Cruz y Héctor Daniel González Sánchez, estudiantes de 2do Semestre en Ingeniería de Sistemas y computación de la Universidad del Quindío.
 El objetivo de este proyecto es aplicar todos los conocimientos adquiridos en la asignatura de Programacion I para un parqueadero.
 
-Seguimos Mejorando
-
 # Autores
 
 - Autor: Hector Daniel Gonzalez Sanchez
