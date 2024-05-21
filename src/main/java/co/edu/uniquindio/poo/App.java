@@ -18,5 +18,51 @@ public class App {
 
 
 
+<<<<<<< Updated upstream
+=======
+                    
+                    break;
+                case 3:
+                    Vehiculo.ingresarVehiculo();
+                    break;
+                case 4:
+                    System.out.print("Ingrese la fila del puesto: ");
+                    fila = scanner.nextInt();
+                    System.out.print("Ingrese la columna del puesto: ");
+                    columna = scanner.nextInt();
+            
+                    puestos = Parqueadero.getPuestos();
+
+                    Parqueadero.validarInfo(puestos, fila, columna);
+                    
+                break;
+                case 5:
+                    System.out.print("Ingrese la fila del puesto: ");
+                    int filaTarifa = scanner.nextInt();
+                    System.out.print("Ingrese la columna del puesto: ");
+                    int columnaTarifa = scanner.nextInt();
+                    System.out.print("Ingrese la nueva tarifa: ");
+                    int tarifa = scanner.nextInt();
+                    scanner.nextLine(); // Limpiar el buffer
+                    Parqueadero.configurarTarifa(filaTarifa, columnaTarifa, (int) tarifa);
+                    break;
+                case 6:
+                    Parqueadero.generarReporteDiario();
+                    break;
+                case 7:
+                    Parqueadero.generarReporteMensual();
+                    break;
+                case 8:
+                    Vehiculo.desocupar();
+                    break;
+                case 9:
+                    System.out.println("Saliendo del sistema...");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Opción no válida. Intente de nuevo.");
+            }
+        }
+>>>>>>> Stashed changes
     }
 }
