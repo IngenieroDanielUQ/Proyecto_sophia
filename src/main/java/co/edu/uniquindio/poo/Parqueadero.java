@@ -114,21 +114,20 @@ public class Parqueadero {
         }
     }
 
-    public static void imprimirMatrizPuestos() {
-        System.out.println("Matriz de puestos del parqueadero: ");
-        System.out.println();
-        for (int i = 0; i < puestos.length; i++) {
-            for (int j = 0; j < puestos[i].length; j++) {
-                if (puestos[i][j].isEstaOcupado()) {
-                    System.out.println("[X]"); // Puesto ocupado
-                } else {
-                    System.out.println("[ ]"); // Puesto disponible
-                }
+public static void imprimirMatrizPuestos() {
+    System.out.println("Matriz de puestos del parqueadero: ");
+    System.out.println();
+    for (int i = 0; i < puestos.length; i++) {
+        for (int j = 0; j < puestos[i].length; j++) {
+            if (puestos[i][j].isEstaOcupado()) {
+                System.out.print("[X]"); // Puesto ocupado
+            } else {
+                System.out.print("[ ]"); // Puesto disponible
             }
-            System.out.println();
-            System.out.println();
         }
+        System.out.println(); // Salto de línea al final de cada fila
     }
+}
 
     public static void validarInfo(Puesto[][] puestos, int fila, int columna) {
 
