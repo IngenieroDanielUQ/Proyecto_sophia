@@ -23,6 +23,10 @@ public Puesto(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
 
 //Getters y setters
 
+    public Puesto(boolean b, Object object) {
+    //TODO Auto-generated constructor stub
+}
+
     public boolean isEstaOcupado() {
         return estaOcupado;
     }

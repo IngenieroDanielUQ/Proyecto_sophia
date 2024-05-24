@@ -11,13 +11,13 @@ public class Parqueadero {
     protected static Puesto[][] puestos;
     static Scanner scanner = new Scanner(System.in);
 
-    public Parqueadero(int filas, int columnas) {
+    public Parqueadero(int filas, int columnas, double tarifa) {
         this.puestos = new Puesto[filas][columnas];
 
         // Inicializar todos los puestos
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
-                puestos[i][j] = new Puesto(false, 0.0, null);
+                puestos[i][j] = new Puesto(false,tarifa, null);
             }
         }
     }
@@ -72,7 +72,7 @@ public class Parqueadero {
     public static void ubicarVehiculo(int fila, int columna, Vehiculo vehiculo) {
         if (verificarDisponibilidad(puestos, fila, columna)) {
             System.out.print("Ingrese la tarifa para el vehiculo : ");
-            int tarifa = scanner.nextInt();
+            double tarifa = scanner.nextInt();
             puestos[fila][columna].ocupar(true, tarifa,vehiculo);
             System.out.println("Vehículo ubicado en el puesto [" + fila + "][" + columna + "] a las " + LocalDateTime.now() + ".");
             System.out.println();

@@ -94,7 +94,7 @@ public abstract class Vehiculo{
             } else {
                 System.out.println("Tipo de vehículo no válido.");
             }
-            System.out.println("Resgistro exitoso!");
+            System.out.println("Registro rechazado!");
             System.out.println();
             System.out.println();
     }
@@ -109,7 +109,7 @@ public abstract class Vehiculo{
                 Puesto puesto = Parqueadero.getPuestos()[fila][columna];
                 if (puesto.estaOcupado() && puesto.getVehiculoOcupante().getPlaca().equalsIgnoreCase(placaDesocupar)) {
                     LocalDateTime horaEntrada = puesto.getFechaHoraRegistro(); // Obtener la hora de entrada del puesto ocupado
-                    int tarifaPorHora = (int) puesto.getTarifa();
+                    double tarifaPorHora = (double) puesto.getTarifa();
                     
                     Parqueadero.generarFactura(puesto.getVehiculoOcupante(), horaEntrada, tarifaPorHora);
                     puesto.desocupar();
