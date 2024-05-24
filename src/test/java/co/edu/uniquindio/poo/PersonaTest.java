@@ -25,7 +25,7 @@ public class PersonaTest {
     @Test
     public void TestDatosCompletos() {
         LOG.info("Iniciado test Datos Completos");
-        
+
         Persona miPersona = new Persona("Daniel", "1038646923", "3146745272", TipoPersona.COMPRADOR);
 
         assertEquals("Daniel", miPersona.getNombre());
@@ -42,8 +42,9 @@ public class PersonaTest {
     @Test
     public void TestDatosVacios() {
         LOG.info("Iniciado test Datos Vacios");
-    
-        assertThrows(Throwable.class, () -> new Persona("", "", "", null));;
+
+        assertThrows(Throwable.class, () -> new Persona("", "", "", null));
+        ;
 
         LOG.info("Finalizando test Datos Vacios");
     }
@@ -54,8 +55,9 @@ public class PersonaTest {
     @Test
     public void TestDatosnull() {
         LOG.info("Iniciado test Datos null");
-    
-        assertThrows(Throwable.class, () -> new Persona(null, null, null, null));;
+
+        assertThrows(Throwable.class, () -> new Persona(null, null, null, null));
+        ;
 
         LOG.info("Finalizando test Datos null");
     }

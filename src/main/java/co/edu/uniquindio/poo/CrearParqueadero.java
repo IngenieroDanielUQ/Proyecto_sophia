@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 public class CrearParqueadero extends Parqueadero {
 
-    public CrearParqueadero(int filas, int columnas, double tarifa) {
-        super(filas, columnas, tarifa);
+    public CrearParqueadero(int filas, int columnas) {
+        super(filas, columnas);
     }
-    /*Método desocupar*/
-    public static void creaPaequeadero(){
+
+    /* Método desocupar */
+    public static void crearParqueadero() {
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         System.out.println();
         // Solicitar al usuario que ingrese el número de filas y columnas
@@ -17,19 +19,11 @@ public class CrearParqueadero extends Parqueadero {
         System.out.print("Ingrese el número de columnas del parqueadero: ");
         int columnas = scanner.nextInt();
         // Crear un array bidimensional de tamaño especificado por el usuario
-        Parqueadero miparqueadero = new Parqueadero(filas,columnas, columnas);
+        @SuppressWarnings("unused")
+        Parqueadero miparqueadero = new Parqueadero(filas, columnas);
         System.out.println("Parqueadero creado exitosamente con " + filas + " filas y " + columnas + " columnas.");
         System.out.println();
         System.out.println();
     }
-    
-    public void mostrarInformacion() {
-        System.out.println("Parqueadero con Numero de puestos: " + getPuestos() + "\n");
 
-    }
-
-    
-    
-    
-    
 }

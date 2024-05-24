@@ -9,69 +9,56 @@ public class Puesto {
     private double tarifa;
     private Vehiculo vehiculoOcupante;
     private LocalDateTime fechaHoraRegistro;
-    
 
+    /* Constructor */
+    public Puesto(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
+        this.estaOcupado = false;
+        this.tarifa = tarifa;
+        this.vehiculoOcupante = vehiculoOcupante;
+        this.fechaHoraRegistro = null; // Inicialmente no hay fecha y hora de registro
 
-/*Constructor*/
-public Puesto(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
-    this.estaOcupado = false;
-    this.tarifa = tarifa;
-    this.vehiculoOcupante = vehiculoOcupante;
-    this.fechaHoraRegistro = null; // Inicialmente no hay fecha y hora de registro
+    }
 
-}
-
-//Getters y setters
+    // Getters y setters
 
     public Puesto(boolean b, Object object) {
-    //TODO Auto-generated constructor stub
-}
+        // TODO Auto-generated constructor stub
+    }
 
     public boolean isEstaOcupado() {
         return estaOcupado;
     }
 
-
     public void setEstaOcupado(boolean estaOcupado) {
         this.estaOcupado = estaOcupado;
     }
-
 
     public double getTarifa() {
         return tarifa;
     }
 
-
     public void setTarifa(double tarifa) {
         this.tarifa = tarifa;
     }
-
-
 
     public Vehiculo getVehiculoOcupante() {
         return vehiculoOcupante;
     }
 
-
     public void setVehiculoOcupante(Vehiculo vehiculoOcupante) {
         this.vehiculoOcupante = vehiculoOcupante;
     }
 
-
     public LocalDateTime getFechaHoraRegistro() {
         return fechaHoraRegistro;
     }
-    
+
     public Persona getPropietario() {
-        return vehiculoOcupante != null ?  vehiculoOcupante.getPersona() : null;
+        return vehiculoOcupante != null ? vehiculoOcupante.getPersona() : null;
     }
 
-    
-
-/*Método verificar disponibilidad de puesto*/
-    
-/*Método ocupar*/
-    public void ocupar(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante){
+    /* Método ocupar */
+    public void ocupar(boolean estaOcupado, Vehiculo vehiculoOcupante) {
         if (!this.estaOcupado) {
             this.estaOcupado = true;
             this.fechaHoraRegistro = LocalDateTime.now(); // Registrar la fecha y hora actuales
@@ -83,8 +70,8 @@ public Puesto(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
 
     }
 
-    /*Método desocupar*/
-    public void desocupar(){
+    /* Método desocupar */
+    public void desocupar() {
         if (estaOcupado) {
             this.estaOcupado = false;
             this.vehiculoOcupante = null;
@@ -94,19 +81,15 @@ public Puesto(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
         } else {
             System.out.println("El puesto ya está desocupado.");
         }
-        
-    }
-    
-/*Método informacion*/
-    @Override
-    public String toString() {
-        return "\n" + "Puesto " + "\n" + 
-                "¿Esta ocupado?:" + estaOcupado + "\n" + "\n"+
-                "Vehiculo ocupante: " + vehiculoOcupante + "\n" ;
+
     }
 
-    public void mostrarInformacion(){
-        System.out.println(toString());
+    /* informacion */
+    @Override
+    public String toString() {
+        return "\n" + "Puesto " + "\n" +
+                "¿Esta ocupado?:" + estaOcupado + "\n" + "\n" +
+                "Vehiculo ocupante: " + vehiculoOcupante + "\n";
     }
 
     public boolean estaOcupado() {
