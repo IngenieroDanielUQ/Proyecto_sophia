@@ -25,7 +25,7 @@ public class CarroTest {
     @Test
     public void TestDatosCompletos() {
         LOG.info("Iniciado test Datos Completos");
-        
+
         Persona miPersona = new Persona("Daniel", "1038646923", "3146745272", TipoPersona.COMPRADOR);
         Carro miCarro = new Carro("RGL 484", "Chevrolet Aveo Sedan", miPersona);
 
@@ -42,7 +42,7 @@ public class CarroTest {
     @Test
     public void TestDatosVacios() {
         LOG.info("Iniciado test Datos Vacios");
-    
+
         assertThrows(Throwable.class, () -> new Carro("", "", null));
 
         LOG.info("Finalizando test Datos Vacios");
@@ -54,7 +54,7 @@ public class CarroTest {
     @Test
     public void TestDatosnull() {
         LOG.info("Iniciado test Datos null");
-    
+
         assertThrows(Throwable.class, () -> new Carro(null, null, null));
 
         LOG.info("Finalizando test Datos Vacios");

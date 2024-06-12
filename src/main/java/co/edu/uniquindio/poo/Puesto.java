@@ -1,40 +1,36 @@
 package co.edu.uniquindio.poo;
 
+import java.time.LocalDateTime;
+
 /*Creacion de la clase principal Puesto que compone al parqueadero*/
 
 public class Puesto {
-    private int posicionI;
-    private int posicionJ;
     private boolean estaOcupado;
     private double tarifa;
     private Vehiculo vehiculoOcupante;
+    private LocalDateTime fechaHoraRegistro;
 
-
-/*Constructor*/
-
-    public Puesto(int posicionI, int posicionJ, boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
-        this.posicionI = posicionI;
-        this.posicionJ = posicionJ;
-        this.estaOcupado = estaOcupado;
+    /* Constructor */
+    public Puesto(boolean estaOcupado, double tarifa, Vehiculo vehiculoOcupante) {
+        this.estaOcupado = false;
         this.tarifa = tarifa;
         this.vehiculoOcupante = vehiculoOcupante;
+        this.fechaHoraRegistro = null; // Inicialmente no hay fecha y hora de registro
+
     }
 
-/*Getters y setters*/
-    public int getPosicionI() {
-        return posicionI;
+    // Getters y setters
+
+    public Puesto(boolean b, Object object) {
+        // TODO Auto-generated constructor stub
     }
 
-    public void setPosicionI(byte posicionI) {
-        this.posicionI = posicionI;
+    public boolean isEstaOcupado() {
+        return estaOcupado;
     }
 
-    public int getPosicionJ() {
-        return posicionJ;
-    }
-
-    public void setPosicionJ(byte posicionJ) {
-        this.posicionJ = posicionJ;
+    public void setEstaOcupado(boolean estaOcupado) {
+        this.estaOcupado = estaOcupado;
     }
 
     public double getTarifa() {
@@ -53,48 +49,51 @@ public class Puesto {
         this.vehiculoOcupante = vehiculoOcupante;
     }
 
-    public boolean isEstaOcupado() {
-        return estaOcupado;
+    public LocalDateTime getFechaHoraRegistro() {
+        return fechaHoraRegistro;
     }
 
-    public void setEstaOcupado(boolean estaOcupado) {
-        this.estaOcupado = estaOcupado;
+    public Persona getPropietario() {
+        return vehiculoOcupante != null ? vehiculoOcupante.getPersona() : null;
     }
 
-/*Método ocupar*/
-    public void ocupar(){
-        if (!estaOcupado) {
+    /* Método ocupar */
+    public void ocupar(boolean estaOcupado, Vehiculo vehiculoOcupante) {
+        if (!this.estaOcupado) {
             this.estaOcupado = true;
-            System.out.println("El puesto (" + posicionI + "," + posicionJ + ") ha sido ocupado por el vehículo " + vehiculoOcupante.getPlaca());
+            this.fechaHoraRegistro = LocalDateTime.now(); // Registrar la fecha y hora actuales
+            this.vehiculoOcupante = vehiculoOcupante;
+            System.out.println("El puesto ha sido ocupado por el vehículo " + this.vehiculoOcupante.getPlaca());
         } else {
-            System.out.println("El puesto (" + posicionI + "," + posicionJ + ") ya está ocupado.");
+            System.out.println("El puesto ya está ocupado.");
         }
 
     }
 
-/*Método desocupar*/
-    public void desocupar(){
+    /* Método desocupar */
+    public void desocupar() {
         if (estaOcupado) {
             this.estaOcupado = false;
             this.vehiculoOcupante = null;
-            System.out.println("El puesto (" + posicionI + "," + posicionJ + ") ha sido desocupado.");
+            this.fechaHoraRegistro = null; // Resetear la fecha y hora de registro
+
+            System.out.println("El puesto ha sido desocupado.");
         } else {
-            System.out.println("El puesto (" + posicionI + "," + posicionJ + ") ya está desocupado.");
+            System.out.println("El puesto ya está desocupado.");
         }
-        
-    }
-    
-/*Método informacion*/
-    @Override
-    public String toString() {
-        return "\n" + "Puesto " + "\n" + 
-                "Posicion I: " + posicionI + "\n" + 
-                "Posicion J: " + posicionJ + "\n" +
-                "¿Esta ocupado?:" + estaOcupado + "\n" + "\n"+
-                "Vehiculo ocupante: " + vehiculoOcupante + "\n" ;
+
     }
 
-    public void mostrarInformacion(){
-        System.out.println(toString());
+    /* informacion */
+    @Override
+    public String toString() {
+        return "\n" + "Puesto " + "\n" +
+                "¿Esta ocupado?:" + estaOcupado + "\n" + "\n" +
+                "Vehiculo ocupante: " + vehiculoOcupante + "\n";
     }
+
+    public boolean estaOcupado() {
+        return estaOcupado;
+    }
+
 }

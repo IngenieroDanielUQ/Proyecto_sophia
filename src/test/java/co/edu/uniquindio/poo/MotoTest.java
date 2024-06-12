@@ -25,7 +25,7 @@ public class MotoTest {
     @Test
     public void TestDatosCompletos() {
         LOG.info("Iniciado test Datos Completos");
-        
+
         Persona miPersona = new Persona("Daniel", "1038646923", "3146745272", TipoPersona.COMPRADOR);
         Moto miMoto = new Moto("AFM 37C", "Discover 125", miPersona, 120, TipoMoto.CLASICA);
 
@@ -44,8 +44,8 @@ public class MotoTest {
     @Test
     public void TestDatosVacios() {
         LOG.info("Iniciado test Datos Vacios");
-    
-        assertThrows(Throwable.class, () -> new Moto("", "",  null, 0, null));
+
+        assertThrows(Throwable.class, () -> new Moto("", "", null, 0, null));
 
         LOG.info("Finalizando test Datos Vacios");
     }
@@ -56,8 +56,8 @@ public class MotoTest {
     @Test
     public void TestDatosnull() {
         LOG.info("Iniciado test Datos null");
-    
-        assertThrows(Throwable.class, () -> new Moto(null, null,  null, 0, null));
+
+        assertThrows(Throwable.class, () -> new Moto(null, null, null, 0, null));
 
         LOG.info("Finalizando test Datos Vacios");
     }
@@ -68,10 +68,10 @@ public class MotoTest {
     @Test
     public void TestDatosMayorACero() {
         LOG.info("Iniciado Test velocidad mayor a cero");
-        
+
         Persona miPersona = new Persona("Daniel", "1038646923", "3146745272", TipoPersona.COMPRADOR);
-    
-        assertThrows(Throwable.class, () -> new Moto ("AFM 37C", "Discover 125", miPersona, -120, TipoMoto.CLASICA));
+
+        assertThrows(Throwable.class, () -> new Moto("AFM 37C", "Discover 125", miPersona, -120, TipoMoto.CLASICA));
 
         LOG.info("Finalizando Test velocidad mayor a cero");
     }
